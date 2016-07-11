@@ -31,7 +31,11 @@ __kernel void nonceGrind(__global ulong *headerIn, __global ulong *nonceOut) {
 	ulong target = headerIn[10];
 	ulong m[16] = {	headerIn[0], headerIn[1],
 	                headerIn[2], headerIn[3],
+	               	#if ADDRESS_BITS == 32
 	                headerIn[4] | ((ulong)get_global_id(0) & 0xffffffff), headerIn[5],
+	                #else
+	                (ulong)get_global_id(0), headerIn[5],
+	                #endif
 	                headerIn[6], headerIn[7],
 	                headerIn[8], headerIn[9], 0, 0, 0, 0, 0, 0 };
 
