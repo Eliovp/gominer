@@ -39,6 +39,10 @@ See what intensity gives you the best hashrate.
 
 ## FAQ
 
+- Invalid shares?
+
+  Upgrade your drivers to 16.4 or higher.
+
 - *ERROR fetching work - Get http://localhost:9980/miner/headerforwork: dial tcp 127.0.0.1:9980: connection refused*
 
   Make sure `siad` is running
